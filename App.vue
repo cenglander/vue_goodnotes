@@ -29,16 +29,17 @@ export default {
 
     data: () => ({
         input: "Type your TODO here..",
-        todoList: ["Broccoli", "Tomato", "Cabbage"]
+        todoList: ["Broccoli", "Tomatos", "Cabbage"]
 
     }),
 
     methods: {
-        // addTodo() {
-        //     this.todoList.push(input)
-        // },
+        addTodo(input, todoList) {
+            todoList.push(input)
+        },
         removePost(payload) {
-            this.todoList = this.todoList.filter(post => post !=payload)
+            this.todoList = this.todoList.filter(post => post != payload)
+            console.log(this.todoList)
         }
     }
 

@@ -28,6 +28,7 @@ export default {
         height: 15vh;
         padding: 1em;
         margin: 1em;
+        border-radius: 3px;
     }
     p {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
