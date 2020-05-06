@@ -1,8 +1,16 @@
 <template>
+<!-- <main v-bind:class="{layout-grid: grid}"> -->
 <main>
-    <h1>Goodnotes - Vue</h1>
-    <input type="text" v-model="input" placeholder="Type your TODO here">
-    <button v-on:click="addTodo(input, todoList)">Add Todo</button>
+    <h1>GOODNOTES - Vue</h1>
+
+    <!-- textarea istället för input-->
+    <!-- textarea rows="5"-->
+    <input
+        type="text" 
+        v-model="input" 
+        placeholder="Type your TODO here">
+    <button 
+        v-on:click="addTodo(input, todoList)">Add Todo</button>
 
     <!-- <Child        
     /> -->
@@ -28,9 +36,10 @@ export default {
     },
 
     data: () => ({
-        input: "",
+        //input: "",
         // todoList: ["Broccoli", "Tomatos", "Cabbage"],
-        todoList: []
+        todoList: [],
+        grid: false, //test - toggla klassen layout-grid
 
     }),
 
@@ -60,6 +69,11 @@ export default {
         display: flex;
         justify-content: center;
     }
+    /* test för grid-layout */
+    .layout-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
     button {
         border-radius: 5px;
         background: #FBD1A2;
@@ -68,3 +82,13 @@ export default {
     }
 
 </style>
+
+<!--
+sandy brown (orange/brown) FC9F5B
+light orange FBD1A2
+lemon meringue ECE4B7
+middle blue green 7DCFB6
+emerald 33CA7F
+
+-->
+

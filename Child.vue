@@ -10,6 +10,7 @@
 <script>
 export default {
     props: {
+        // post: Object,
         post: String,
         // input: String,
     },
@@ -41,4 +42,9 @@ export default {
         font-weight: bold;
         margin: 0.3rem;
     }
+    /*  */
+    textarea {
+        white-space: pre-line;
+    }
+
 </style>
