@@ -4,14 +4,14 @@
     <input type="text" v-model="input" placeholder="Type your TODO here">
     <button v-on:click="addTodo(input, todoList)">Add Todo</button>
 
-    <Child
-        
-    />
+    <!-- <Child        
+    /> -->
 
     <Child
         v-for="child in todoList"
         v-bind:key="child"
         v-bind:post="child"
+        v-on:edit="editPost"
         v-on:remove="removePost"
 
     />
@@ -29,13 +29,18 @@ export default {
 
     data: () => ({
         input: "",
-        todoList: ["Broccoli", "Tomatos", "Cabbage"]
+        // todoList: ["Broccoli", "Tomatos", "Cabbage"],
+        todoList: []
 
     }),
 
     methods: {
         addTodo(input, todoList) {
-            todoList.push(input)
+            // todoList.push(input)
+            todoList.unshift(input)
+        },
+        editPost(payload) {            
+            console.log(payload)
         },
         removePost(payload) {
             this.todoList = this.todoList.filter(post => post != payload)

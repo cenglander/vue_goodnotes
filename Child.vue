@@ -1,7 +1,8 @@
 <template>
 <article>
-    <p>{{input}}</p>
+    <!-- <p>{{input}}</p> -->
     <p>{{post}}</p>
+    <button v-on:click="editTodo">Edit this Todo</button>
     <button v-on:click="removeTodo">Delete this Todo</button>
 </article>
 </template>
@@ -10,10 +11,13 @@
 export default {
     props: {
         post: String,
-        input: String,
+        // input: String,
     },
 
     methods: {
+        editTodo() {
+            this.$emit('edit', this.post)
+        },
         removeTodo() {
             this.$emit('remove', this.post)
         }
