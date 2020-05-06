@@ -1,12 +1,20 @@
 <template>
 <main>
-    <Child
-        v-for="child in list"
-        v-bind:key="child"
-        v-bind:message="child"
+    <h1>Goodnotes - Vue</h1>
+    <input type="text" v-model="input" v-on:click="input=''">
+    <button v-on:click="addTodo">Add Todo</button>
 
+    <Child
+     
     />
 
+    <Child
+        v-for="child in todoList"
+        v-bind:key="child"
+        v-bind:message="child"
+        v-on:remove="removePost"
+
+    />
     
 </main>
 </template>
@@ -20,12 +28,18 @@ export default {
     },
 
     data: () => ({
-        list: ["Broccoli", "Carrot", "Tomato", "Cabbage"]
+        input: "Type your TODO here..",
+        todoList: ["Broccoli", "Tomato", "Cabbage"]
 
     }),
 
     methods: {
-
+        // addTodo() {
+        //     this.todoList.push(input)
+        // },
+        removePost(payload) {
+            this.todoList = this.todoList.filter(post => post !=payload)
+        }
     }
 
 }
@@ -36,6 +50,8 @@ export default {
         margin: 0;
         padding: 0;
         background: #ECE4B7;
+        display: flex;
+        justify-content: center;
     }
 
 </style>

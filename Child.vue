@@ -1,17 +1,22 @@
 <template>
 <article>
     <p>{{message}}</p>
+    <!-- <p>{{input}}</p> -->
+    <button v-on:click="removeTodo">Delete this Todo</button>
 </article>
 </template>
 
 <script>
 export default {
     props: {
-        message: String
+        message: String,
+        input: String,
     },
 
     methods: {
-
+        removeTodo() {
+            this.$emit('remove', this.message)
+        }
     }
 }
 </script>
